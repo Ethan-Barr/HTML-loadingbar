@@ -1,0 +1,50 @@
+<!DOCKTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            overflow: hidden;
+        }
+        
+        p {
+            position: relative;
+            border: none;
+            border-radius: 25rem;
+            background: blue;
+            color: white;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <p id="box"> </p>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        box.style.width = "10%";
+        document.getElementById("area").style.width = "100%";
+        var currentPos = -10;
+
+        function animationLoop() {
+            box.style.left = currentPos + "%";
+            currentPos++;
+            if (currentPos === 100) {
+                currentPos = -10;
+            }
+            window.requestAnimationFrame(animationLoop);
+        }
+
+        animationLoop()
+    </script>
+</body>
+
+</html>
